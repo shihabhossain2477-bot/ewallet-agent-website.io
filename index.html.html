@@ -1,0 +1,1865 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1XBET Wallet Agent Registration</title>
+<meta name="description" content="Wallet agent program information and application.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #050b18;
+  --card: #0d172a;
+  --blue: #3182f6;
+  --text: #f4f7ff;
+  --muted: #9aaac4;
+  --green: #b8ed9a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  height: 74px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #040914;
+  border-bottom: 1px solid #ffffff12;
+}
+.nav {
+  max-width: 1080px;
+  height: 100%;
+  margin: auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+}
+.logo span { color: #299df5; }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  font-size: 12px;
+  font-weight: 700;
+}
+nav a:hover { color: #58a9ff; }
+nav .active {
+  padding: 8px 12px;
+  color: #58a9ff;
+  background: #10213b;
+  border: 1px solid #214c83;
+  border-radius: 8px;
+}
+nav .nav-btn {
+  padding: 12px 17px;
+  border: 1px solid #293449;
+  border-radius: 10px;
+}
+.menu-btn {
+  display: none;
+  padding: 8px 12px;
+  color: white;
+  background: #111c30;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.hero {
+  overflow: hidden;
+  position: relative;
+  padding: 75px 22px 0;
+  background:
+    radial-gradient(ellipse at 40% 25%, #35456d, #172747 42%, #071326 78%, #040914);
+}
+.hero-inner {
+  max-width: 1080px;
+  min-height: 450px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.tag {
+  display: inline-block;
+  padding: 6px 13px;
+  border: 1px solid #ffffff20;
+  border-radius: 25px;
+  background: #ffffff12;
+  font-size: 10px;
+  font-weight: 800;
+}
+.tag i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #3995ff;
+}
+h1 {
+  margin: 20px 0 15px;
+  font-size: clamp(38px, 5vw, 57px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+h1 span { color: var(--green); }
+.hero-copy > p {
+  max-width: 510px;
+  color: #d9e3f4;
+  font-size: 14px;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid #ffffff25;
+  border-radius: 10px;
+  background: #ffffff0b;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn.primary {
+  border: 0;
+  background: linear-gradient(110deg, #2f78ed, #2e9bf3);
+}
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.stat {
+  min-width: 112px;
+  padding: 11px 15px;
+  border: 1px solid #ffffff17;
+  border-radius: 15px;
+  background: #ffffff0b;
+}
+.stat b { display: block; font-size: 18px; }
+.stat small { font-size: 9px; color: #c3cee0; }
+
+.art {
+  min-height: 400px;
+  position: relative;
+}
+.phone {
+  position: absolute;
+  top: 35px;
+  left: 65px;
+  width: 220px;
+  height: 360px;
+  border: 7px solid #151b2b;
+  border-radius: 35px;
+  background: linear-gradient(150deg, #20385b, #080e1b);
+  box-shadow: 0 20px 50px #0008;
+  transform: rotate(-5deg);
+}
+.glass {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  width: 245px;
+  height: 290px;
+  padding: 23px;
+  border: 1px solid #ffffff25;
+  border-radius: 28px;
+  background: #ffffff12;
+  box-shadow: 0 20px 45px #0005;
+  transform: rotate(4deg);
+}
+.glass h3 { margin: 0; font-style: italic; }
+.glass h3 span { color: #39a5ff; }
+.line {
+  height: 7px;
+  width: 80%;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: #a9c5e833;
+}
+.line.short { width: 55%; margin-top: 10px; }
+.check {
+  width: 85px;
+  height: 85px;
+  margin: 25px auto 15px;
+  border-radius: 50%;
+  background: #80b936;
+  color: white;
+  font-size: 55px;
+  line-height: 85px;
+  text-align: center;
+}
+.success {
+  padding: 12px;
+  border-radius: 8px;
+  background: #70a92c;
+  font-size: 11px;
+  text-align: center;
+}
+.metrics {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+.metrics div {
+  padding: 20px 10px;
+  border: 1px solid #ffffff12;
+  border-radius: 0 0 15px 15px;
+  background: #080e1cf2;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+.metrics small { display: block; color: var(--muted); }
+
+section.content {
+  max-width: 1124px;
+  margin: auto;
+  padding: 75px 22px;
+}
+.heading { margin-bottom: 28px; }
+.rule {
+  width: 60px;
+  height: 1px;
+  margin-bottom: 10px;
+  background: #315b85;
+}
+h2 {
+  margin: 0 0 7px;
+  font-size: 30px;
+  letter-spacing: -.8px;
+}
+.heading p { margin: 0; color: var(--muted); font-size: 13px; }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.card {
+  padding: 25px 22px;
+  border: 1px solid #ffffff12;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #101a2c, #0a1222);
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #214d82;
+  border-radius: 12px;
+  background: #10213b;
+  color: #7ec2ff;
+  font-size: 20px;
+}
+.card h3 { margin: 20px 0 7px; font-size: 14px; }
+.card p { margin: 0; color: var(--muted); font-size: 13px; }
+
+
+.steps { display: grid; gap: 13px; }
+.step {
+  display: flex;
+  gap: 17px;
+  padding: 22px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 17px;
+  background: #0c1527;
+}
+.number {
+  flex: 0 0 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3388ff, #18bda7);
+  font-weight: 800;
+}
+.step h3 { margin: 0 0 6px; font-size: 14px; }
+.step p { margin: 0; color: var(--muted); font-size: 13px; }
+.copy { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.content h3.subhead { margin: 25px 0 8px; font-size: 16px; }
+
+.contact {
+  display: block;
+  width: 100%;
+  background: #080f1e;
+  border-top: 1px solid #ffffff12;
+}
+.contact-inner {
+  max-width: 1080px;
+  width: 100%;
+  margin: auto;
+  display: contents;
+}
+.direct {
+  margin: 12px 0;
+  padding: 18px;
+  border: 1px solid #ffffff12;
+  border-radius: 16px;
+  background: #0d182b;
+}
+.direct h3 { margin: 0 0 4px; font-size: 14px; }
+.direct p { margin: 0; color: var(--muted); font-size: 12px; }
+.form {
+  align-self: start;
+  padding: 25px;
+  border: 1px solid #ffffff16;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #101b30, #0a1222);
+}
+.form h2 { margin: 12px 0 6px; font-size: 22px; }
+.form > p { color: var(--muted); font-size: 12px; }
+label {
+  display: block;
+  margin: 13px 0 6px;
+  color: #9eacc3;
+  font-size: 10px;
+  font-weight: 800;
+}
+input, select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #27344b;
+  border-radius: 9px;
+  outline: none;
+  background: #121d31;
+  color: white;
+  font: inherit;
+  font-size: 12px;
+}
+input:focus, select:focus { border-color: #3987ee; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.form button { width: 100%; margin-top: 18px; }
+#formMessage { color: #a8edb1; font-size: 12px; margin-top: 10px; }
+.faq { max-width: 900px !important; }
+details {
+  margin: 10px 0;
+  padding: 17px;
+  border: 1px solid #ffffff12;
+  border-radius: 12px;
+  background: #0d1728;
+}
+summary { cursor: pointer; font-weight: 700; }
+details p { color: var(--muted); font-size: 13px; }
+footer {
+  padding: 28px 22px;
+  border-top: 1px solid #ffffff12;
+  background: #040914;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+footer .logo { color: white; }
+
+@media(max-width: 760px) {
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 73px;
+    left: 0;
+    right: 0;
+    padding: 15px 22px;
+    background: #050b18;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  nav.open { display: flex; }
+  nav a { padding: 8px; }
+  .hero { padding-top: 45px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 43px; }
+  .art { min-height: 300px; }
+  .phone { left: 10%; }
+  .glass { right: 5%; }
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; }
+  section.content { padding: 55px 20px; }
+  h2 { font-size: 25px; }
+}
+@media(max-width: 400px) {
+  .hero h1 { font-size: 36px; }
+  .stat { min-width: 0; flex: 1; padding: 10px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#home" class="logo">1X<span>BET</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <nav id="menu">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-btn" href="#contact">BECOME AN AGENT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="tag"><i></i> WALLET AGENT PROGRAM </div>
+      <h1>Earn online as a<br><span>wallet agent</span></h1>
+      <p>Learn about the wallet agent application process, eligibility checks, transaction workflow, and commission terms before applying.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Become an agent</a>
+        <a class="btn" href="#guide">How it works</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>7%</b><small>DEPOSITS</small></div>
+        <div class="stat"><b>2%</b><small>WITHDRAWALS</small></div>
+        <div class="stat"><b>Daily</b><small>PAYOUT</small></div>
+      </div>
+    </div>
+    <div class="art">
+      <div class="phone"></div>
+      <div class="glass">
+        <h3>1X<span>BET</span></h3>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="check">✓</div>
+        <div class="success">Request confirmed<br>Illustrative interface</div>
+      </div>
+    </div>
+  </div>
+  <div class="metrics">
+    <div>Leading brand since 2007</small></div>
+    <div>More than 50 countries</small></div>
+    <div>25000+ events / 16000+ LIVE</small></div>
+    <div>7000+ markets</small></div>
+  </div>
+</section>
+
+<section class="content" id="benefits">
+  <div class="heading">
+    <div class="rule"></div>
+    <h2>Core Features of the Agent Program</h2>
+    <p>Example features a legitimate agent portal might provide.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="icon">◷</div>
+      <h3>Daily Payout Settlements</h3>
+      <p>Your commissions are calculated automatically and credited directly to your secure agent ledger every day before midnight.</p>
+    </article>
+    <article class="card">
+      <div class="icon">▣</div>
+      <h3>Unified Agent Admin Panel</h3>
+      <p>Monitor your incoming transaction flow, review history, and keep track of your active balances using a single, intuitive interface.</p>
+    </article>
+    <article class="card">
+      <div class="icon">✓</div>
+      <h3>Automated Transaction Queue</h3>
+      <p>Players initiate their requests directly on the main site. You only need to verify and confirm them inside the agent app.</p>
+    </article>
+    <article class="card">
+      <div class="icon">↻</div>
+      <h3>Priority Partner Support</h3>
+      <p>Receive round-the-clock priority assistance from our team of dedicated onboarding and technical account managers.</p>
+    </article>
+  </div>
+</section>
+
+
+<section class="agent-guide" id="guide">
+  <div class="guide-container">
+
+    <div class="guide-header">
+      <span class="guide-label">AGENT RESOURCES</span>
+      <h2>Complete Agent Guide</h2>
+      <p class="guide-subtitle">
+        From Registration to Daily Work
+      </p>
+      <p>
+        Learn about the registration process, verification,
+        app setup, daily workflow, security, and the
+        responsibilities involved in wallet agent operations.
+      </p>
+    </div>
+
+    <div class="guide-notice">
+      <strong>Before You Begin</strong>
+      <p>
+        Review all requirements and verify the legitimacy of
+        the operator before submitting personal information
+        or making any payment. This guide is informational
+        and does not guarantee approval, employment, or income.
+      </p>
+    </div>
+
+    <div class="guide-list">
+
+      <article class="guide-card">
+        <span class="guide-number">01</span>
+        <div>
+          <h3>Verification and Onboarding</h3>
+          <p>
+            The first stage is identity and eligibility
+            verification. This process helps establish whether
+            an applicant meets the relevant requirements.
+            If approved by the authorized operator, the
+            applicant can receive the applicable account
+            instructions, operating rules, transaction limits,
+            and security guidance.
+          </p>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="guide-number">02</span>
+        <div>
+          <h3>App Setup and Operating Basics</h3>
+          <p>
+            After access has been verified, follow the
+            operator's legitimate instructions to install
+            the relevant application and sign in securely.
+            Learn how to review requests, check transaction
+            details, and confirm actions accurately.
+            Always double-check information before approving
+            a transaction.
+          </p>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="guide-number">03</span>
+        <div>
+          <h3>Daily Workflow and Time Management</h3>
+          <p>
+            A consistent schedule can help you organize
+            incoming requests and manage your time.
+            Set realistic working hours, monitor pending
+            transactions, and keep records of completed
+            tasks. Actual working hours and availability
+            requirements depend on the operator's rules.
+          </p>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="guide-number">04</span>
+        <div>
+          <h3>Understanding Commissions</h3>
+          <p>
+            Commission arrangements can vary according to
+            the operator's terms, transaction volume, and
+            applicable conditions. Before starting, ask for
+            the official commission schedule, payment terms,
+            transaction limits, and any fees in writing.
+            Do not assume that a particular income is
+            guaranteed.
+          </p>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="guide-number">05</span>
+        <div>
+          <h3>Security and Professional Standards</h3>
+          <p>
+            Never share passwords, one-time verification
+            codes, or account credentials with other people.
+            Use secure internet connections and enable
+            available account protection features.
+            Communicate through verified official channels,
+            follow the applicable rules, and keep records
+            of important account and transaction activity.
+          </p>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="guide-number">06</span>
+        <div>
+          <h3>Long-Term Development</h3>
+          <p>
+            Building experience takes time, careful record
+            keeping, and consistent attention to procedures.
+            Review your performance regularly and understand
+            the risks, responsibilities, and financial
+            requirements before deciding whether this type
+            of work is appropriate for you.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="guide-summary">
+      <h3>What You'll Learn From This Guide</h3>
+      <p>
+        This guide introduces the main stages of an agent
+        application, identity verification, secure app access,
+        transaction handling, and daily work expectations.
+        It is designed to help applicants understand the
+        process before deciding whether to proceed.
+      </p>
+      <p>
+        Before sharing personal details or paying any fee,
+        independently verify the operator, the official
+        application process, and the terms of the opportunity.
+      </p>
+    </div>
+
+  
+
+  </div>
+</section>
+
+<style>
+
+.agent-guide {
+  padding: 60px 20px;
+  background: #0b1220;
+  color: #e8edf7;
+  font-family: Arial, sans-serif;
+}
+
+.guide-container {
+  max-width: 1070px;
+  margin: 0 auto;
+}
+
+.guide-header {
+  max-width: 100%;
+  text-align: left;
+  margin: 0 0 35px;
+}
+
+.guide-label {
+  display: inline-block;
+  color: #75e0b0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.guide-header h2 {
+  font-size: clamp(28px, 5vw, 36px);
+  margin: 0 0 10px;
+  color: #f1f5f9;
+}
+
+.guide-subtitle {
+  color: #e2e8f0;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.guide-header p,
+.guide-card p,
+.guide-summary p,
+.guide-notice p {
+  color: #94a3b8;
+  line-height: 1.8;
+}
+
+.guide-notice {
+  padding: 20px;
+  margin-bottom: 28px;
+  border: 1px solid #1e2b40;
+  border-radius: 17px;
+  background: #0b1324;
+}
+
+.guide-notice strong {
+  color: #f1f5f9;
+  font-size: 17px;
+}
+
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  counter-reset: guide-step;
+}
+
+.guide-card {
+  counter-increment: guide-step;
+  display: block;
+  padding: 25px 20px;
+  border: 1px solid #1e2b40;
+  border-radius: 17px;
+  background: #0b1324;
+}
+
+.guide-number {
+  display: none;
+}
+
+.guide-card h3,
+.guide-summary h3,
+.guide-links h3 {
+  color: #f1f5f9;
+  margin: 2px 0 10px;
+  font-size: 17px;
+}
+
+.guide-card h3::before {
+  content: counter(guide-step) ". ";
+}
+
+.guide-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.guide-summary {
+  margin-top: 28px;
+  padding: 25px;
+  border: 1px solid #1e2b40;
+  border-radius: 17px;
+  background: #0b1324;
+}
+
+.guide-links {
+  margin-top: 28px;
+  padding: 25px;
+  border: 1px solid #1e2b40;
+  border-radius: 17px;
+  background: #0b1324;
+}
+
+.guide-links a {
+  display: inline-block;
+  margin: 8px 12px 4px 0;
+  padding: 11px 15px;
+  border: 1px solid #29415e;
+  border-radius: 8px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.guide-links a:hover {
+  background: #142238;
+}
+
+@media (max-width: 700px) {
+  .guide-list {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    padding: 18px;
+  }
+
+  .guide-links a {
+    display: block;
+    text-align: center;
+    margin-right: 0;
+  }
+}
+</style>
+
+<section id="about" class="about-section">
+  <div class="about-container">
+
+    <div class="about-heading">
+      <span class="about-label">ABOUT THE PROGRAM</span>
+      <h2>About the 1XBET Wallet Agent Program</h2>
+      <p>
+        Learn about the agent role, transaction workflow,
+        security practices, and important considerations.
+      </p>
+    </div>
+
+    <article class="about-card">
+      <h3>About the 1XBET Wallet Agent Program</h3>
+      <p>
+        The 1XBET wallet agent program is described as an online
+        transaction-handling role involving deposit and withdrawal
+        requests. Agents are expected to follow the applicable
+        operational rules and use authorized systems.
+      </p>
+      <p>
+        The typical workflow involves reviewing each request,
+        checking the transaction details, and accepting or rejecting
+        it according to the operator's procedures. Remote access,
+        availability, and eligibility depend on the actual program
+        terms and local requirements.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <h3>Global Reach & Supported Geographies</h3>
+      <p>
+        Agent availability and supported payment methods can vary
+        by country and operator. Applicants should confirm that
+        the program officially operates in their location before
+        registering or sending any documents or money.
+      </p>
+      <p>
+        If you are applying from Bangladesh, verify the relevant
+        local rules, payment requirements, and the legitimacy of
+        the organization through independently confirmed channels.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <h3>Security, Fraud Prevention, and Compliance</h3>
+      <p>
+        Security is essential when handling financial transactions.
+        Check transaction references and follow the authorized
+        verification process before taking action. Never share
+        passwords, one-time codes, or account credentials.
+      </p>
+      <p>
+        Keep your device secure, avoid untrusted networks, and
+        follow applicable privacy, anti-fraud, and legal requirements.
+        Do not approve a transaction if its details cannot be verified.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <h3>Workflow and Daily Responsibilities</h3>
+      <p>
+        Depending on the official operating model, an agent may
+        handle transaction requests through a management system
+        rather than direct conversations with customers. Actual
+        duties and support arrangements must be confirmed with
+        the authorized operator.
+      </p>
+      <p>
+        People researching terms such as
+        <strong>1XBET wallet agent job</strong>,
+        <strong>1XBET agent application</strong>, or
+        <strong>earn commission online</strong> should verify the
+        opportunity before relying on any income claims.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <h3>Commission and Earnings</h3>
+      <p>
+        Commission rates, payment schedules, and eligibility
+        conditions depend on the official agreement. Any quoted
+        rates, including 7% on deposits or 2% on withdrawals,
+        should be independently verified before making a decision.
+      </p>
+      <p>
+        Earnings are not guaranteed. Review all fees, financial
+        obligations, transaction risks, and withdrawal terms
+        before participating.
+      </p>
+    </article>
+
+
+<article class="about-card">
+  <h3>Who Is This Role Best Suited For?</h3>
+  <p>
+    This type of role may suit people who can follow detailed
+    procedures, check information carefully, and maintain
+    reliable internet access. Basic digital skills, responsible
+    recordkeeping, and consistent availability can be useful.
+  </p>
+  <p>
+    Applicants should first confirm the role's legitimacy,
+    eligibility criteria, local legality, and any costs.
+    Never pay an unverified person for a promised job or account.
+  </p>
+</article>
+
+<div class="about-warning">
+  <strong>What Applicants Should Understand Before Registering</strong>
+  <p>
+    Before submitting your details, it is helpful to understand
+    that the program is based on operational accuracy rather than
+    passive income. Your results depend on how consistently you
+    review requests, how well you maintain working balance
+    availability, and how carefully you follow verification
+    instructions. New applicants can review the agent guide for
+    the full onboarding path or compare earning potential on the
+    benefits page before completing the application form.
+  </p>
+</div>
+
+</div>
+</section>
+
+<style>
+.about-section {
+  padding: 70px 20px;
+  background: #080f1e;
+  color: #e8edf7;
+  font-family: Arial, sans-serif;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  margin-bottom: 35px;
+  animation: aboutFadeIn .6s ease both;
+}
+
+.about-label {
+  color: #dff8ed;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-heading h2 {
+  margin: 12px 0;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.25;
+}
+
+.about-heading p,
+.about-card p,
+.about-warning p {
+  color: #aab8cc;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.about-card {
+  margin-bottom: 18px;
+  padding: 25px;
+  border: 1px solid #24334a;
+  border-radius: 16px;
+  background: #0c1527;
+  transition: border-color .25s ease,
+              transform .25s ease,
+              background .25s ease;
+  animation: aboutFadeIn .6s ease both;
+}
+
+.about-card:hover {
+  border-color: #3d6581;
+  background: #0f1a2e;
+  transform: translateY(-3px);
+}
+
+.about-card h3 {
+  margin: 0 0 12px;
+  color: #f3f6fc;
+  font-size: 19px;
+}
+
+.about-card p {
+  margin: 0 0 12px;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-warning {
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid #4a4050;
+  border-left: 4px solid #0f1814;
+  border-radius: 12px;
+  background: #101827;
+}
+
+.about-warning strong {
+  color: #fff;
+  font-size: 16px;
+}
+
+.about-warning p {
+  margin-bottom: 0;
+}
+
+@keyframes aboutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: 45px 16px;
+  }
+
+  .about-card {
+    padding: 20px;
+  }
+
+  .about-card h3 {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-heading,
+  .about-card {
+    animation: none;
+  }
+
+  .about-card {
+    transition: none;
+  }
+}
+
+
+.contact-info {
+  width: 100%;
+}
+
+.contact-info .heading {
+  margin-bottom: 28px;
+}
+
+.contact-info .heading > p {
+  color: #91add4;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  margin: 12px 0;
+  background: linear-gradient(120deg, #0b1d3a, #07152b);
+  border: 1px solid #124b91;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Only the website card becomes smaller */
+.contact-info .contact-card:first-of-type {
+  max-width: 520px;
+  padding: 14px 16px;
+  gap: 12px;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+
+.contact-icon {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  font-size: 38px;
+  background: #102f60;
+  border: 1px solid #1b65bd;
+  border-radius: 18px;
+}
+
+.contact-details {
+  min-width: 0;
+}
+
+.contact-badge {
+  display: inline-block;
+  padding: 7px 12px;
+  margin-bottom: 10px;
+  color: #8edbff;
+  background: #073b70;
+  border: 1px solid #145da3;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.email-badge {
+  color: #8df5cd;
+  background: #06463e;
+  border-color: #087c68;
+}
+
+.contact-card h3 {
+  margin: 0 0 9px;
+  color: #f4f8ff;
+  font-size: 21px;
+}
+
+.contact-card p {
+  margin: 0 0 14px;
+  color: #9bb5d9;
+  line-height: 1.7;
+}
+
+.contact-value {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 10px 15px;
+  color: #f0f7ff;
+  background: #0a2850;
+  border: 1px solid #174e8c;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+a.contact-value:hover {
+  border-color: #36baff;
+}
+
+.channel-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.channel-actions button,
+.channel-actions .channel-open {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  padding: 13px 17px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.channel-actions .copy-btn {
+  color: white;
+  background: linear-gradient(110deg, #168bff, #1556ff);
+  border: 1px solid #248dff;
+}
+
+.channel-actions .channel-open {
+  color: #72c7ff;
+  background: transparent;
+  border: 1px solid #087cff;
+}
+
+.channel-actions button:hover,
+.channel-actions .channel-open:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+@media (max-width: 850px) {
+  .contact-card {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .contact-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 30px;
+  }
+
+  .contact-card h3 {
+    font-size: 18px;
+  }
+
+  .contact-card .channel-actions {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .channel-actions button,
+  .channel-actions .channel-open {
+    flex: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .channel-actions {
+    gap: 8px;
+  }
+
+  .channel-actions button,
+  .channel-actions .channel-open {
+    min-width: 0;
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Compact Contact section to reduce vertical space */
+.contact-info .heading {
+  margin-bottom: 12px;
+}
+
+.contact-info .heading > p {
+  margin-top: 6px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.contact-card {
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 14px;
+}
+
+.contact-icon {
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  border-radius: 12px;
+}
+
+.contact-card h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.contact-card p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+
+.contact-badge {
+  padding: 4px 8px;
+  margin-bottom: 5px;
+  font-size: 9px;
+}
+
+.contact-value {
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.channel-actions {
+  gap: 6px;
+}
+
+.channel-actions button,
+.channel-actions .channel-open {
+  min-width: 0;
+  padding: 9px 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .contact-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    margin: 8px 0;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+  }
+
+  .contact-card .channel-actions {
+    grid-column: 1;
+    width: 100%;
+  }
+}
+</style>
+
+<style>
+/* ===== Contact & Application: Equal Columns ===== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-info {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.contact-info .heading {
+  margin-bottom: 8px;
+}
+
+.contact-info .contact-card {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 16px;
+  align-items: start;
+}
+
+.contact-info .contact-card .channel-actions {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-info .contact-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 23px;
+}
+
+.contact-layout .timeline-area {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+  width: 100%;
+}
+
+
+.contact-layout .form {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  position: static;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 24px;
+}
+
+
+@media (max-width: 760px) {
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .contact-info,
+  .contact-layout .timeline-area,
+  .contact-layout .form {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .contact-layout .form {
+    padding: 20px;
+  }
+}
+</style>
+
+
+<section class="content contact" id="contact">
+<div class="contact-layout">
+  <div class="contact-info">
+    <div class="heading">
+      <div class="rule"></div>
+      <h2>Contact & Application</h2>
+    </p> Use the official website and onboarding email below. These are the quickest ways to verify details and stay connected with our 1XBET wallet agent registration team. <p>
+    </div>
+
+    <div class="direct contact-card">
+      <div class="contact-icon">🌐</div>
+
+      <div class="contact-details">
+        <span class="contact-badge">WEBSITE</span>
+        <h3>Verify the Official Website</h3>
+        <p>Always check the domain before opening a website.</p>
+
+        <a class="contact-value"
+           href="https://1xbet.com"
+           target="_blank"
+           rel="noopener noreferrer">
+          🔗 & 1xbet.com ↗
+        </a>
+      </div>
+
+      <div class="channel-actions">
+        <button class="copy-btn" type="button"
+          onclick="copyChannel('https://1xbet.com', this)">↗ Copy</button>
+
+        <a class="channel-open"
+           href="https://1xbet.com"
+           target="_blank"
+           rel="noopener noreferrer">↗ Open</a>
+      </div>
+    </div>
+
+    <div class="direct contact-card">
+      <div class="contact-icon">✉️</div>
+
+      <div class="contact-details">
+        <span class="contact-badge email-badge">CONTACT</span>
+        <h3>Use Verified Email</h3>
+        <p>Only use an email address that you have verified.</p>
+
+        <span class="contact-value" id="contactEmail">
+          YOUR_EMAIL@example.com
+        </span>
+      </div>
+
+      <div class="channel-actions">
+        <button class="copy-btn" type="button"
+          onclick="copyChannel('YOUR_EMAIL@example.com', this)">↗ Copy</button>
+
+        <a class="channel-open"
+           href="mailto:YOUR_EMAIL@example.com">↗  Open</a>
+      </div>
+    </div>
+  </div>
+
+
+<div class="timeline-area">
+
+  <h2 style="margin-top:30px">Onboarding Timeline</h2>
+
+  <p style="margin-top:12px; line-height:1.8; color:#bdc8d9;">
+    After you submit your 1XBET wallet agent application, our onboarding department reviews your profile details. We strive to make the setup process as quick and transparent as possible. Here is what you can expect:
+  </p>
+    <div
+     class="steps" style="margin-top:16px">
+      <article class="step"><span class="number">1</span><div><h3>Application Review (1 - 2 Hours)</h3><p>Our verification team checks the submission for missing details. A manager is assigned to coordinate your onboarding.</p></div></article>
+      <article class="step"><span class="number">2</span><div><h3>Telegram Contact (Same Day)</h3><p>The manager reaches out to you on Telegram or Email to verify your identity documents and confirm your country eligibility.</p></div></article>
+      <article class="step"><span class="number">3</span><div><h3>Agent Portal Access (Within 2-3 working days)</h3><p>Once verified, your unique credentials, access links, and installation files for the agent application (1xBetManagement & Reddy) are shared with you securely.</p></div></article>
+
+    </div>
+  </div>
+
+  <form class="form" id="applicationForm">
+
+    <div class="tag"><i></i> REGISTRATION FORM </div>
+    <h2>Submit your application</h2>
+    <p>Complete the registration form below. Provide your Telegram ID so our onboarding manager can contact you quickly.</p>
+    <label for="name">NAME</label>
+    <input id="name" name="name" placeholder="Name" required>
+    <label for="email">EMAIL</label>
+    <input id="email" name="email" type="email" placeholder="Email" required>
+    <div class="form-row">
+      <div>
+
+<label for="country">COUNTRY NAME</label>
+<select id="country" name="country" required>
+  <option value="Afghanistan" data-code="+93">Afghanistan (+93)</option>
+  <option value="Albania" data-code="+355">Albania (+355)</option>
+  <option value="Algeria" data-code="+213">Algeria (+213)</option>
+  <option value="Andorra" data-code="+376">Andorra (+376)</option>
+  <option value="Angola" data-code="+244">Angola (+244)</option>
+  <option value="Argentina" data-code="+54">Argentina (+54)</option>
+  <option value="Armenia" data-code="+374">Armenia (+374)</option>
+  <option value="Australia" data-code="+61">Australia (+61)</option>
+  <option value="Austria" data-code="+43">Austria (+43)</option>
+  <option value="Azerbaijan" data-code="+994">Azerbaijan (+994)</option>
+  <option value="Bahamas" data-code="+1-242">Bahamas (+1-242)</option>
+  <option value="Bahrain" data-code="+973">Bahrain (+973)</option>
+  <option value="Bangladesh" data-code="+880" selected>Bangladesh (+880)</option>
+  <option value="Barbados" data-code="+1-246">Barbados (+1-246)</option>
+  <option value="Belarus" data-code="+375">Belarus (+375)</option>
+  <option value="Belgium" data-code="+32">Belgium (+32)</option>
+  <option value="Belize" data-code="+501">Belize (+501)</option>
+  <option value="Benin" data-code="+229">Benin (+229)</option>
+  <option value="Bhutan" data-code="+975">Bhutan (+975)</option>
+  <option value="Bolivia" data-code="+591">Bolivia (+591)</option>
+  <option value="Bosnia and Herzegovina" data-code="+387">Bosnia and Herzegovina (+387)</option>
+  <option value="Botswana" data-code="+267">Botswana (+267)</option>
+  <option value="Brazil" data-code="+55">Brazil (+55)</option>
+  <option value="Brunei" data-code="+673">Brunei (+673)</option>
+  <option value="Bulgaria" data-code="+359">Bulgaria (+359)</option>
+  <option value="Burkina Faso" data-code="+226">Burkina Faso (+226)</option>
+  <option value="Burundi" data-code="+257">Burundi (+257)</option>
+  <option value="Cambodia" data-code="+855">Cambodia (+855)</option>
+  <option value="Cameroon" data-code="+237">Cameroon (+237)</option>
+  <option value="Canada" data-code="+1">Canada (+1)</option>
+  <option value="Chile" data-code="+56">Chile (+56)</option>
+  <option value="China" data-code="+86">China (+86)</option>
+  <option value="Colombia" data-code="+57">Colombia (+57)</option>
+  <option value="Costa Rica" data-code="+506">Costa Rica (+506)</option>
+  <option value="Croatia" data-code="+385">Croatia (+385)</option>
+  <option value="Cyprus" data-code="+357">Cyprus (+357)</option>
+  <option value="Czechia" data-code="+420">Czechia (+420)</option>
+  <option value="Denmark" data-code="+45">Denmark (+45)</option>
+  <option value="Dominican Republic" data-code="+1-809">Dominican Republic (+1-809)</option>
+  <option value="Ecuador" data-code="+593">Ecuador (+593)</option>
+  <option value="Egypt" data-code="+20">Egypt (+20)</option>
+  <option value="El Salvador" data-code="+503">El Salvador (+503)</option>
+  <option value="Estonia" data-code="+372">Estonia (+372)</option>
+  <option value="Ethiopia" data-code="+251">Ethiopia (+251)</option>
+  <option value="Finland" data-code="+358">Finland (+358)</option>
+  <option value="France" data-code="+33">France (+33)</option>
+  <option value="Georgia" data-code="+995">Georgia (+995)</option>
+  <option value="Germany" data-code="+49">Germany (+49)</option>
+  <option value="Ghana" data-code="+233">Ghana (+233)</option>
+  <option value="Greece" data-code="+30">Greece (+30)</option>
+  <option value="Guatemala" data-code="+502">Guatemala (+502)</option>
+  <option value="Honduras" data-code="+504">Honduras (+504)</option>
+  <option value="Hungary" data-code="+36">Hungary (+36)</option>
+  <option value="Iceland" data-code="+354">Iceland (+354)</option>
+  <option value="India" data-code="+91">India (+91)</option>
+  <option value="Indonesia" data-code="+62">Indonesia (+62)</option>
+  <option value="Iraq" data-code="+964">Iraq (+964)</option>
+  <option value="Ireland" data-code="+353">Ireland (+353)</option>
+  <option value="Israel" data-code="+972">Israel (+972)</option>
+  <option value="Italy" data-code="+39">Italy (+39)</option>
+  <option value="Jamaica" data-code="+1-876">Jamaica (+1-876)</option>
+  <option value="Japan" data-code="+81">Japan (+81)</option>
+  <option value="Jordan" data-code="+962">Jordan (+962)</option>
+  <option value="Kazakhstan" data-code="+7">Kazakhstan (+7)</option>
+  <option value="Kenya" data-code="+254">Kenya (+254)</option>
+  <option value="Kuwait" data-code="+965">Kuwait (+965)</option>
+  <option value="Kyrgyzstan" data-code="+996">Kyrgyzstan (+996)</option>
+  <option value="Laos" data-code="+856">Laos (+856)</option>
+  <option value="Latvia" data-code="+371">Latvia (+371)</option>
+  <option value="Lebanon" data-code="+961">Lebanon (+961)</option>
+  <option value="Libya" data-code="+218">Libya (+218)</option>
+  <option value="Lithuania" data-code="+370">Lithuania (+370)</option>
+  <option value="Luxembourg" data-code="+352">Luxembourg (+352)</option>
+  <option value="Madagascar" data-code="+261">Madagascar (+261)</option>
+  <option value="Malawi" data-code="+265">Malawi (+265)</option>
+  <option value="Malaysia" data-code="+60">Malaysia (+60)</option>
+  <option value="Maldives" data-code="+960">Maldives (+960)</option>
+  <option value="Mali" data-code="+223">Mali (+223)</option>
+  <option value="Malta" data-code="+356">Malta (+356)</option>
+  <option value="Mauritius" data-code="+230">Mauritius (+230)</option>
+  <option value="Mexico" data-code="+52">Mexico (+52)</option>
+  <option value="Moldova" data-code="+373">Moldova (+373)</option>
+  <option value="Mongolia" data-code="+976">Mongolia (+976)</option>
+  <option value="Montenegro" data-code="+382">Montenegro (+382)</option>
+  <option value="Morocco" data-code="+212">Morocco (+212)</option>
+  <option value="Mozambique" data-code="+258">Mozambique (+258)</option>
+  <option value="Myanmar" data-code="+95">Myanmar (+95)</option>
+  <option value="Namibia" data-code="+264">Namibia (+264)</option>
+  <option value="Nepal" data-code="+977">Nepal (+977)</option>
+  <option value="Netherlands" data-code="+31">Netherlands (+31)</option>
+  <option value="New Zealand" data-code="+64">New Zealand (+64)</option>
+  <option value="Nicaragua" data-code="+505">Nicaragua (+505)</option>
+  <option value="Nigeria" data-code="+234">Nigeria (+234)</option>
+  <option value="North Macedonia" data-code="+389">North Macedonia (+389)</option>
+  <option value="Norway" data-code="+47">Norway (+47)</option>
+  <option value="Oman" data-code="+968">Oman (+968)</option>
+  <option value="Pakistan" data-code="+92">Pakistan (+92)</option>
+  <option value="Panama" data-code="+507">Panama (+507)</option>
+  <option value="Paraguay" data-code="+595">Paraguay (+595)</option>
+  <option value="Peru" data-code="+51">Peru (+51)</option>
+  <option value="Philippines" data-code="+63">Philippines (+63)</option>
+  <option value="Poland" data-code="+48">Poland (+48)</option>
+  <option value="Portugal" data-code="+351">Portugal (+351)</option>
+  <option value="Qatar" data-code="+974">Qatar (+974)</option>
+  <option value="Romania" data-code="+40">Romania (+40)</option>
+  <option value="Russia" data-code="+7">Russia (+7)</option>
+  <option value="Rwanda" data-code="+250">Rwanda (+250)</option>
+  <option value="Saudi Arabia" data-code="+966">Saudi Arabia (+966)</option>
+  <option value="Senegal" data-code="+221">Senegal (+221)</option>
+  <option value="Serbia" data-code="+381">Serbia (+381)</option>
+  <option value="Singapore" data-code="+65">Singapore (+65)</option>
+  <option value="Slovakia" data-code="+421">Slovakia (+421)</option>
+  <option value="Slovenia" data-code="+386">Slovenia (+386)</option>
+  <option value="Somalia" data-code="+252">Somalia (+252)</option>
+  <option value="South Africa" data-code="+27">South Africa (+27)</option>
+  <option value="South Korea" data-code="+82">South Korea (+82)</option>
+  <option value="Spain" data-code="+34">Spain (+34)</option>
+  <option value="Sri Lanka" data-code="+94">Sri Lanka (+94)</option>
+  <option value="Sudan" data-code="+249">Sudan (+249)</option>
+  <option value="Sweden" data-code="+46">Sweden (+46)</option>
+  <option value="Switzerland" data-code="+41">Switzerland (+41)</option>
+  <option value="Syria" data-code="+963">Syria (+963)</option>
+  <option value="Taiwan" data-code="+886">Taiwan (+886)</option>
+  <option value="Tajikistan" data-code="+992">Tajikistan (+992)</option>
+  <option value="Tanzania" data-code="+255">Tanzania (+255)</option>
+  <option value="Thailand" data-code="+66">Thailand (+66)</option>
+  <option value="Tunisia" data-code="+216">Tunisia (+216)</option>
+  <option value="Türkiye" data-code="+90">Türkiye (+90)</option>
+  <option value="Uganda" data-code="+256">Uganda (+256)</option>
+  <option value="Ukraine" data-code="+380">Ukraine (+380)</option>
+  <option value="United Arab Emirates" data-code="+971">United Arab Emirates (+971)</option>
+  <option value="United Kingdom" data-code="+44">United Kingdom (+44)</option>
+  <option value="United States" data-code="+1">United States (+1)</option>
+  <option value="Uruguay" data-code="+598">Uruguay (+598)</option>
+  <option value="Uzbekistan" data-code="+998">Uzbekistan (+998)</option>
+  <option value="Venezuela" data-code="+58">Venezuela (+58)</option>
+  <option value="Vietnam" data-code="+84">Vietnam (+84)</option>
+  <option value="Yemen" data-code="+967">Yemen (+967)</option>
+  <option value="Zambia" data-code="+260">Zambia (+260)</option>
+  <option value="Zimbabwe" data-code="+263">Zimbabwe (+263)</option>
+</select>
+
+      </div>
+      <div>
+        <label for="phone">PHONE (OPTIONAL)</label>
+        <input id="phone" name="phone" placeholder="Phone number">
+      </div>
+    </div>
+    <label for="telegram">TELEGRAM ID (OPTIONAL)</label>
+    <input id="telegram" name="telegram" placeholder="@username">
+    <button class="btn primary" type="submit">Preview Application</button>
+    <div id="formMessage" aria-live="polite"></div>
+  </form>
+
+  </div>
+
+</section>
+
+<section class="content faq" id="faq">
+  <div class="heading">
+    <div class="rule"></div>
+    <h2>1XBET Wallet Agent Program Frequently Asked Questions</h2>
+    <p>Quick answers before you apply.</p>
+  </div>
+  
+<div class="faq-intro">
+  <h3>Answers About Registration, Verification, and Daily Agent Work</h3>
+
+  <p>
+    This FAQ page answers common questions about wallet agent programs,
+    including application requirements, access, verification procedures,
+    commissions, and daily responsibilities. If you are comparing this
+    opportunity with other online income options, these answers can help
+    you understand the general workflow, support process, and payment model.
+  </p>
+
+  <p class="faq-disclaimer">
+    This is an independent informational website. It is not affiliated
+    with or endorsed by 1XBET. Verify the legitimacy of any opportunity
+    and all requirements through independently confirmed official channels
+    before sharing personal information or making payments.
+  </p>
+</div>
+
+
+  <details>
+    <summary>Do I need to talk to players?</summary>
+    <p>No. Players deposit directly and submit requests through the management site. You only confirm requests.</p>
+  </details>
+
+  <details>
+    <summary>What do I need to start?</summary>
+    <p>Verification, a smartphone, and a working balance. After approval, you’ll receive secure access details and installation files for the agent applications.</p>
+  </details>
+
+  <details>
+    <summary>How is commission paid?</summary>
+    <p>Commission is credited daily. Standard rates are 7% for deposits and 2% for withdrawals.</p>
+  </details>
+
+  <details>
+    <summary>What is a 1XBET retail agent?</summary>
+    <p>A 1XBET retail agent, also known as a 1XBET wallet agent or e-wallet agent, acts as a local payment partner. They handle deposits and withdrawals for users in their country using the secure retail app, without needing to interact with players directly.</p>
+  </details>
+
+  <details>
+    <summary>Where can I download the 1XBET agent app?</summary>
+    <p>Once your application is approved and verified by our support manager, you will receive secure access links, credentials, and installation files for the 1xBetManagement and Reddy applications.</p>
+  </details>
+
+  <details>
+    <summary>How do I apply?</summary>
+    <p>Use the contact form and share your name, email, country, phone number, and Telegram ID. Our onboarding manager will contact you.</p>
+  </details>
+
+  <details>
+    <summary>What is the minimum initial working balance required?</summary>
+    <p>There is no fixed minimum balance set by the system, but we recommend starting with a small working balance (around $3000 to $10000 equivalent in your local currency) to learn the transaction confirmation flow and build a routine.</p>
+  </details>
+
+  <details>
+    <summary>Can I log in to the agent app on multiple devices simultaneously?</summary>
+    <p>No. For security and fraud prevention, your agent account is tied to a single device hardware ID. If you need to switch devices, you must contact your onboarding manager to reset your device pairing.</p>
+  </details>
+
+  <details>
+    <summary>How long does the verification process usually take?</summary>
+    <p>Review usually starts within 1 to 2 hours after submission. Manager contact is typically made the same day, and portal access with installation files is usually shared within 2 to 3 working days after verification.</p>
+  </details>
+
+  <details>
+    <summary>Are there any hidden fees or charges for agents?</summary>
+    <p>No. The 1XBET agent program is entirely free to join. There are no registration fees, monthly subscription costs, or software charges. Your earnings come purely from the deposit (7%) and withdrawal (2%) commissions.</p>
+  </details>
+
+  <details>
+    <summary>Can I work as an agent if I already have a personal 1XBET betting account?</summary>
+    <p>Yes. However, your agent profile must be kept completely separate from your personal betting account. The agent app uses a dedicated login portal and balance ledger that does not intersect with regular player accounts.</p>
+  </details>
+
+  <details>
+    <summary>What should I do if a player provides a wrong transaction ID?</summary>
+    <p>If the player's transaction ID or receipt does not match your local payment system ledger, do not approve the request. Flag it in the system and instruct the player to contact the support team with their official payment proof.</p>
+  </details>
+</section>
+</main>
+
+<footer>
+  <a href="#home" class="logo">1X<span>BET</span></a>
+  <p>Copyright © 2007-2019 "1xBet". All rights reserved and protected by law. </p>
+    </p> 1xBet uses cookies to enhance your website experience.  </p>
+    </p>  By continuing to use the website, you agree to the use of these cookies.</p>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function () {
+  menu.classList.toggle("open");
+});
+
+menu.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+});
+
+
+const API_URL = "https://script.google.com/macros/s/AKfycbx45wenTBdfGi5G6Qx--3e4zBxlrYHxGyiHubwJuSAlsc_aWPHsNTpvTW2GVyi_OcHq/exec";
+
+document.getElementById("applicationForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+ 
+const form = event.currentTarget;
+const messageBox = document.getElementById("formMessage");
+const button = form.querySelector('button[type="submit"]');
+
+const name = form.elements["name"].value.trim();
+const email = form.elements["email"].value.trim();
+const telegram = form.elements["telegram"].value.trim();
+
+if (!name || !email || !telegram) {
+  messageBox.textContent =
+    "Please fill in your name, email, and Telegram username.";
+  return;
+}
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(email)) {
+  messageBox.textContent = "Please enter a valid email address.";
+  return;
+}
+
+if (telegram.length < 2) {
+  messageBox.textContent = "Please enter a valid Telegram username.";
+  return;
+}
+
+const data = {
+  name: name,
+  email: email,
+  telegram: telegram,
+  message: form.elements["message"]
+    ? form.elements["message"].value.trim()
+    : ""
+};
+
+  button.disabled = true;
+  messageBox.textContent = "Submitting application...";
+
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    });
+
+   
+messageBox.innerHTML = `
+  <div style="
+    margin-top: 15px;
+    padding: 16px;
+    background: #102b20;
+    border: 1px solid #35b875;
+    border-radius: 12px;
+    color: #a8edb1;
+    text-align: center;
+  ">
+    <div style="font-size: 28px;">✓</div>
+    <strong style="font-size: 15px;">
+      Application Submitted Successfully!
+    </strong>
+    <p style="margin: 6px 0 0; font-size: 12px;">
+      Your application request has been submitted.
+    </p>
+  </div>
+`;
+form.reset();
+
+  } catch (error) {
+    messageBox.textContent =
+      "Submission failed. Please try again.";
+    console.error(error);
+  } finally {
+    button.disabled = false;
+  }
+});
+
+</script>
+
+<script>
+async function copyChannel(value, button) {
+  try {
+    await navigator.clipboard.writeText(value);
+    const oldText = button.textContent;
+    button.textContent = "Copied!";
+    setTimeout(() => {
+      button.textContent = oldText;
+    }, 1500);
+  } catch (error) {
+    window.prompt("Copy this text:", value);
+  }
+}
+</script>
+
+</body>
+</html>
+
